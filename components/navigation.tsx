@@ -12,8 +12,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { ThemeToggle } from "./theme-toggle"
-import { useAuth } from "../contexts/auth-context"
+import { ThemeToggle } from "@/components/theme-toggle"
+import { useAuth } from "@/contexts/auth-context"
 import { Home, FileText, User, LogOut, Settings, CreditCard, Bell } from "lucide-react"
 
 export function Navigation() {
@@ -110,24 +110,32 @@ export function Navigation() {
                     </div>
                   </DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem>
-                    <User className="mr-2 h-4 w-4" />
-                    <span>Profile</span>
+                  <DropdownMenuItem asChild>
+                    <Link href="/profile" className="cursor-pointer">
+                      <User className="mr-2 h-4 w-4" />
+                      <span>Profile</span>
+                    </Link>
                   </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <CreditCard className="mr-2 h-4 w-4" />
-                    <span>My Applications</span>
+                  <DropdownMenuItem asChild>
+                    <Link href="/applications" className="cursor-pointer">
+                      <CreditCard className="mr-2 h-4 w-4" />
+                      <span>My Applications</span>
+                    </Link>
                   </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <Bell className="mr-2 h-4 w-4" />
-                    <span>Notifications</span>
+                  <DropdownMenuItem asChild>
+                    <Link href="/notifications" className="cursor-pointer">
+                      <Bell className="mr-2 h-4 w-4" />
+                      <span>Notifications</span>
+                    </Link>
                   </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <Settings className="mr-2 h-4 w-4" />
-                    <span>Settings</span>
+                  <DropdownMenuItem asChild>
+                    <Link href="/settings" className="cursor-pointer">
+                      <Settings className="mr-2 h-4 w-4" />
+                      <span>Settings</span>
+                    </Link>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={handleLogout} className="text-red-600 dark:text-red-400">
+                  <DropdownMenuItem onClick={handleLogout} className="text-red-600 dark:text-red-400 cursor-pointer">
                     <LogOut className="mr-2 h-4 w-4" />
                     <span>Log out</span>
                   </DropdownMenuItem>
